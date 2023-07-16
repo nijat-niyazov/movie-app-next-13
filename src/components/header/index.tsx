@@ -14,13 +14,22 @@ const Header = () => {
         </Link>
 
         <div className="flex gap-4">
-          <Link className=" hover:text-amber-400 hover:underline underline-offset-8" href={'/movies'}>
+          <Link
+            className=" hover:text-amber-400 hover:underline underline-offset-8"
+            href={'/movies'}
+          >
             Movies
           </Link>
-          <Link className=" hover:text-amber-400 hover:underline underline-offset-8" href={'/series'}>
+          <Link
+            className=" hover:text-amber-400 hover:underline underline-offset-8"
+            href={'/series'}
+          >
             Series
           </Link>
-          <Link className=" hover:text-amber-400 hover:underline underline-offset-8" href={'/kids'}>
+          <Link
+            className=" hover:text-amber-400 hover:underline underline-offset-8"
+            href={'/kids'}
+          >
             Kids
           </Link>
         </div>

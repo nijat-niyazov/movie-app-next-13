@@ -9,6 +9,9 @@ type Props = {
 };
 
 const MovieGenres: FC<Props> = ({ genres }) => {
+
+
+
   return (
     <div className="flex justify-around flex-wrap m-auto gap-2">
       {genres.map(genre => {

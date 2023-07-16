@@ -1,28 +1,33 @@
 import { MovieDetails, MovieGenres, Movies } from '@/components';
-import Genres from '@/mocks/genres.json';
-import MoviesData from '@/mocks/movies.json';
+import { FC } from 'react';
 
-const HomeContainer = ({
-  selectedCategory: { id, movies },
-}: {
-  selectedCategory: { id: string; movies: MovieProps[] | [] };
+interface HomeContainerProps {
+  specialGenre: { id: string; genredMovies: MovieProps[] | [] };
+  topRatedMovies?: MovieProps[];
+  popularMovies?: MovieProps[];
+  genredMovies?: MovieProps[];
+  genres: { id: number; name: string }[];
+}
+
+const HomeContainer: FC<HomeContainerProps> = async ({
+  specialGenre: { id, genredMovies = [] },
+  topRatedMovies = [],
+  popularMovies = [],
+  genres = [],
 }) => {
-  const movie = MoviesData.results[0];
-  const genres = Genres.genres.slice(0, 8);
-  const mockMovies = MoviesData.results;
   const genreName = genres.find(genre => genre.id === Number(id))?.name;
 
   return (
     <div>
-      <MovieDetails movie={movie} />
-      <MovieGenres genres={genres} />
-      {movies.length > 0 && genreName && (
-        <Movies title={genreName} movies={movies} />
+      <MovieDetails movie={topRatedMovies?.[0]} />
+      <MovieGenres genres={genres.slice(0, 8)} />
+
+      {genredMovies.length > 0 && genreName && (
+        <Movies title={genreName} movies={genredMovies} />
       )}
 
-      <Movies title={'Popular Films'} movies={mockMovies.slice(0, 5)} />
-      <Movies title={'Animation'} movies={mockMovies.slice(6, 11)} />
-      <Movies title={'Adventure'} movies={movies.slice(11, 16)} />
+      <Movies title={'Top Rated Movies'} movies={topRatedMovies.slice(0, 5)} />
+      <Movies title={'Popular Movies'} movies={popularMovies.slice(6, 11)} />
     </div>
   );
 };

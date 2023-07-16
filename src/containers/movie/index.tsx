@@ -1,10 +1,10 @@
 import { MovieDetails } from '@/components';
 import { FC } from 'react';
 
-const MovieContainer: FC<{ result: MovieProps }> = ({ result }) => {
+const MovieContainer: FC<{ movie: MovieProps }> = ({ movie }) => {
   return (
     <div>
-      <MovieDetails movie={result} />
+      <MovieDetails movie={movie} />
     </div>
   );
 };

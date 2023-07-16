@@ -1,9 +1,6 @@
 import { MovieContainer } from '@/containers';
-import allMovies from '@/mocks/movies.json';
+import { getMovie } from '@/lib';
 import { notFound } from 'next/navigation';
-
-const delay = async (ms: number) =>
-  new Promise(resolve => setTimeout(resolve, ms * 1000));
 
 const MoviePage = async ({
   params: { movieId },
@@ -12,11 +9,9 @@ const MoviePage = async ({
   params: { movieId: number };
   searchParams: any;
 }) => {
-  const result = allMovies.results.find(movie => movie.id === Number(movieId));
+  const movie = await getMovie(`${movieId}`);
 
-  await delay(100);
-
-  if (!result) {
+  if (!movie) {
     notFound();
   }
 
@@ -26,7 +21,7 @@ const MoviePage = async ({
 
   return (
     <div>
-      <MovieContainer result={result} />
+      <MovieContainer movie={movie} />
     </div>
   );
 };

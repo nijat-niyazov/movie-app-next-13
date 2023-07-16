@@ -1,6 +1,6 @@
 // 'use client';
 
-import SingleMovie from '../singleMovie';
+import SingleMovie from './singleMovie';
 
 const Movies: React.FC<{ movies: MovieProps[]; title: string }> = ({
   title,
