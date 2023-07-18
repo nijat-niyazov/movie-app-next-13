@@ -16,7 +16,7 @@ export async function generateMetadata({ params: { category } }: Props) {
     ?.name;
 
   return {
-    title: finded ?? 'Home page',
+    title: finded ?? 'Moviex',
   };
 }
 

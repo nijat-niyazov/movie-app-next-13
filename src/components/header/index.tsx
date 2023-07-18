@@ -10,7 +10,7 @@ const Header = () => {
           className="flex gap-2 items-center tracking-wider  font-bold  "
         >
           <FaPlayCircle />
-          <h1 className="uppercase">netfilms</h1>
+          <h1 className="uppercase">moviex</h1>
         </Link>
 
         <div className="flex gap-4">
