@@ -11,7 +11,7 @@ const Movies: React.FC<{ movies: MovieProps[]; title: string }> = ({
       <h3 className="mb-4 uppercase text-xl tracking-tight">{title}</h3>
       <div className="flex gap-10 flex-wrap">
         {movies.map(movie => (
-          <SingleMovie movie={movie} />
+          <SingleMovie key={movie.id} movie={movie} />
         ))}
       </div>
     </div>
